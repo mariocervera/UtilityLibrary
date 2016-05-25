@@ -1,4 +1,4 @@
-# UtilityLibrary
+# Utility Library
 
 This repository contains a collection of Java classes and methods that offer algorithmic solutions to problems that recurrently appear in coding challenges. Some examples of these solutions are the following:
 
