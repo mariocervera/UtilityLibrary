@@ -1,6 +1,6 @@
 # Utility Library
 
-This repository contains a collection of algorithmic solutions for problems that recurrently appear in coding challenges. Some examples of these solutions are the following:
+This repository contains algorithmic solutions for problems that recurrently appear in coding challenges. Some examples of these solutions are the following:
 
 (1) A binary search algorithm, which can be used every time we need to search (efficiently) in a sorted array of keys.
 
