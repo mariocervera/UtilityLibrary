@@ -61,7 +61,7 @@ public class Backtracking {
 	}
 	
 	/*
-	 * This method fills a list of possible candidates for the next empty position (k) of the
+	 * This method fills a list of possible candidates for the next empty position of the
 	 * current solution
 	 */
 	private static List<Integer> getCandidates(List<Integer> solution, Object inputData) {
