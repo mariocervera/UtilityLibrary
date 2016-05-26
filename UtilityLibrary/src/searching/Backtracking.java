@@ -3,10 +3,12 @@ package searching;
 import java.util.List;
 
 /**
- * This class provides a backtracking method to iterate through all possible configurations of a search space.
- * This method uses other methods that are implemented here as empty stubs. These methods must be completed to
- * obtain the final algorithm. The solution in each state of the search space is represented here as an array
- * of integers. This data type can be changed as well.
+ * This class provides a generic backtracking method to iterate through all possible configurations of a search
+ * space. It is generic because it relies on a set of methods that are implemented here as empty stubs. These
+ * methods must be completed to obtain the final algorithm that solves the problem at hand.
+ * 
+ * The solution in each state of the search space is represented here as an array of integers. This data type
+ * can be changed as well.
  * 
  * 
  * @author Mario Cervera
