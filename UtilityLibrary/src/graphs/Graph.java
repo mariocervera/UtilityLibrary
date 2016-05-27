@@ -26,6 +26,15 @@ public class Graph {
 			this.degree[i] = 0;
 		}
 	}
+	
+	public int getNumVertices() {
+		return numVertices;
+	}
+
+	public EdgeNode[] getEdges() {
+		return edges;
+	}
+	
 
 	/*
 	 * This method adds a new edge to the graph (weighted). Returns true if the
