@@ -57,8 +57,6 @@ public class BreadthFirstSearch {
 			}
 			processVertexAfter(vertex);
 		}
-		
-		System.out.println();
 	}
 	
 	/*
