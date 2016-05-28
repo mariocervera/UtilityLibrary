@@ -30,9 +30,9 @@ public class DepthFirstSearch {
 	}
 	
 	/*
-	 * This method implements the Depth-First Search algorithm. By using recursion, we visit a new
-	 * vertex as soon as one is available. We could also implement this behavior explicitly using a
-	 * stack data structure (instead of recursion).
+	 * This method implements the Depth-First Search algorithm. By using recursion, new vertices are
+	 * visited as soon as they are available. This behavior could have also been implemented using a
+	 * explicit stack data structure (instead of recursion).
 	 */
 	private static void depthFirstSearch(Graph graph, int vertex) {
 
