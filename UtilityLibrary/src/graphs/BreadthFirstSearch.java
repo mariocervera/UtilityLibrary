@@ -22,26 +22,29 @@ public class BreadthFirstSearch {
 	private static int[] parent;
 	
 	/*
-	 * This method traverses a graph from a given starting vertex using Breadth-First Search
+	 * This method traverses a graph from a given starting vertex using Breadth-First Search.
+	 * A queue is used to temporarily store discovered (but not yet processed) vertices. This
+	 * data structure is the key to follow a breadth-first search: it allows to explore the
+	 * oldest unexplored vertices first.
 	 */
 	public static void bfs(Graph graph, int start) {
 
 		initializeSearch(graph);
 
-		Deque<Integer> bfsQueue = new ArrayDeque<Integer>();
+		Deque<Integer> queue = new ArrayDeque<Integer>();
 
-		bfsQueue.addLast(start);
+		queue.addLast(start);
 		discovered[start] = true;
 
-		while (!bfsQueue.isEmpty()) {
+		while (!queue.isEmpty()) {
 
-			Integer vertex = bfsQueue.removeFirst();
-			processed[vertex] = true;
+			Integer vertex = queue.removeFirst();
 			processVertexBefore(vertex);
+			processed[vertex] = true;
 
-			EdgeNode edge = graph.getEdges()[vertex]; // Iterate adjacent vertices
+			EdgeNode edge = graph.getEdges()[vertex];
 
-			while (edge != null) {
+			while (edge != null) { // Iterate adjacent vertices
 
 				int y = edge.getY();
 
@@ -51,7 +54,7 @@ public class BreadthFirstSearch {
 				if (!discovered[y]) {
 					discovered[y] = true;
 					parent[y] = vertex;
-					bfsQueue.addLast(y);
+					queue.addLast(y);
 				}
 				edge = edge.getNext();
 			}

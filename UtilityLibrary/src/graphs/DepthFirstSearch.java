@@ -8,6 +8,7 @@ package graphs;
  * During the graph traversal, vertices go through three states: undiscovered, discovered, and processed.
  * The algorithm uses a "parent" array that enables the reconstruction of the Depth-First Search tree.
  * 
+ * 
  * @author Mario Cervera
  *
  */
@@ -29,7 +30,9 @@ public class DepthFirstSearch {
 	}
 	
 	/*
-	 * This method implements the Depth-First Search algorithm
+	 * This method implements the Depth-First Search algorithm. By using recursion, we visit a new
+	 * vertex as soon as one is available. We could also implement this behavior explicitly using a
+	 * stack data structure (instead of recursion).
 	 */
 	private static void depthFirstSearch(Graph graph, int vertex) {
 
@@ -49,7 +52,8 @@ public class DepthFirstSearch {
 				processEdge(vertex, y);
 				depthFirstSearch(graph, y);
 			}
-			else if(!processed[y] && parent[vertex] != y) { // If this condition is true, a cycle has been found
+			else if(!processed[y] && parent[vertex] != y) {
+				// If this condition is true, a cycle has been found
 				processEdge(vertex, y);
 			}
 			
