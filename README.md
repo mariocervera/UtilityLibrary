@@ -6,7 +6,7 @@ This repository contains algorithmic solutions for problems that recurrently app
 
 (2) A generic backtracking algorithm, which can be easily adapted to context to obtain a systematic way to iterate through all possible configurations of a search space.
 
-(3) Breadth-first search and depth-first search algorithms for visiting every edge and vertex of a graph.
+(3) A breadth-first search and a depth-first search algorithm for visiting every edge and vertex of a graph.
 
 
 References:
