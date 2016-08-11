@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This class provides an implementation of the MergeSort algorithm. All of the objects of
- * the input array must implement the Comparable interface. Thus, the algorithm can be used
+ * This class provides an implementation of the MergeSort algorithm. The elements of the
+ * input array must implement the Comparable interface. Thus, the algorithm can be used
  * as a general-purpose comparison-based sorting algorithm.
  * 
  * This implementation of MergeSort is not in-place; that is, it uses an auxiliary array. The
- * merging subroutine takes linear time, for a total of O(n log n) to perform the sorting.
+ * Merge subroutine takes linear time, for a total of O(n log n) to perform the sorting.
  * 
  * @author Mario Cervera
  */
@@ -36,7 +36,8 @@ public class MergeSort {
 	}
 	
 	/*
-	 * Implementation of MergeSort. This method sorts the elements of the input array.
+	 * Implementation of MergeSort. This method sorts the elements of the input array following a 
+	 * divide-and-conquer approach.
 	 */
 	private static <T extends Comparable<? super T>> void ms(List<T> a, List<T> aux, int low, int high) {
 		
@@ -56,12 +57,12 @@ public class MergeSort {
 	 */
 	private static <T extends Comparable<? super T>> void merge(List<T> a, List<T> aux, int low, int mid, int high) {
 		
-		int i = low;
-		int j = mid + 1;
+		int i = low; // Pointer to the first half
+		int j = mid + 1; // Pointer to the second half
 		
-		int posAux = low;
+		int posAux = low; // Pointer to the target array
 		
-		// Merge elements from both arrays
+		// Merge elements
 		
 		while(i <= mid && j <= high) {
 			if(a.get(i).compareTo(a.get(j)) <= 0) {
@@ -75,7 +76,7 @@ public class MergeSort {
 			posAux++;
 		}
 		
-		// One array may not be fully traversed. Copy remaining elements.
+		// One of the halves may not be fully traversed. Copy remaining elements.
 		
 		if(i <= mid) {
 			for(int k = i; k <= mid; k++) {
