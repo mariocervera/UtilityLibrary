@@ -15,7 +15,6 @@ import java.util.List;
  * that we can expect O(n log n) time regardless of what the initial input is.
  * 
  * @author Mario Cervera
- *
  */
 public class QuickSort {
 	
@@ -23,7 +22,7 @@ public class QuickSort {
 	 * The only public method of this class. Randomly permutes the input array before
 	 * calling the QuickSort subroutine.
 	 */
-	public static <T extends Comparable<T>> void quickSort(List<T> a, int low, int high) {
+	public static <T extends Comparable<? super T>> void quickSort(List<T> a, int low, int high) {
 		
 		Collections.shuffle(a);
 		
@@ -33,16 +32,16 @@ public class QuickSort {
 	/*
 	 * Implementation of QuickSort. This method sorts the elements of the input array.
 	 */
-	private static <T extends Comparable<T>> void qs(List<T> a, int low, int high) {
-		
-		if(high - low <= 0) return;
-		
+	private static <T extends Comparable<? super T>> void qs(List<T> a, int low, int high) {
+
+		if (high - low <= 0) return;
+
 		int pivot = choosePivot(a, low, high); // "pivot" is an index of the array
-		
+
 		swap(a, pivot, low); // always put the pivot in the "low" position
-		
-		pivot = partition(a, low, high); // partition subroutine assumes the pivot is the "low" position
-		
+
+		pivot = partition(a, low, high); // partition subroutine assumes that the pivot is in the "low" position
+
 		qs(a, low, pivot - 1);
 		qs(a, pivot + 1, high);
 	}
@@ -50,8 +49,8 @@ public class QuickSort {
 	/*
 	 * Median of three
 	 */
-	private static <T extends Comparable<T>> int choosePivot(List<T> a, int low, int high) {
-				
+	private static <T extends Comparable<? super T>> int choosePivot(List<T> a, int low, int high) {
+
 		int mid = (int) Math.floor((low + high) / 2);
 
 		if (a.get(low).compareTo(a.get(high)) > 0) {
@@ -82,27 +81,27 @@ public class QuickSort {
 	/*
 	 * Implements the partition subroutine of QuickSort in linear time
 	 */
-	private static <T extends Comparable<T>> int partition(List<T> a, int low, int high) {
-		
-		int firstHigh = low+1;
+	private static <T extends Comparable<? super T>> int partition(List<T> a, int low, int high) {
+
+		int firstHigh = low + 1;
 		int pivot = low;
-		
-		for(int i = low+1; i <= high; i++) {
-			if(a.get(i).compareTo(a.get(pivot)) < 0) {
+
+		for (int i = low + 1; i <= high; i++) {
+			if (a.get(i).compareTo(a.get(pivot)) < 0) {
 				swap(a, i, firstHigh);
 				firstHigh++;
 			}
 		}
-		
-		swap(a, firstHigh-1, pivot);
-		
-		return firstHigh-1;
+
+		swap(a, firstHigh - 1, pivot);
+
+		return firstHigh - 1;
 	}
 		
 	/*
 	 * Swaps two elements of the input array
 	 */
-	private static <T extends Comparable<T>> void swap(List<T> a, int i, int j) {
+	private static <T extends Comparable<? super T>> void swap(List<T> a, int i, int j) {
 
 		T aux = a.get(i);
 		a.set(i, a.get(j));
