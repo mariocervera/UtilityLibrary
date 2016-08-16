@@ -14,16 +14,16 @@ package graphs;
  */
 public class DepthFirstSearch {
 
-	private static boolean[] discovered;
-	private static boolean[] processed;
-	private static int[] parent;
+	protected boolean[] discovered;
+	protected boolean[] processed;
+	protected int[] parent;
 	
-	private static boolean finish = false; // Enables premature search termination
+	protected boolean finish = false; // Enables premature search termination
 	
 	/*
-	 * Public method that invokes the Depth-First Search algorithm
+	 * Invokes the Depth-First Search algorithm after an initialization of the variables
 	 */
-	public static void dfs(Graph graph, int vertex) {
+	protected void dfs(Graph graph, int vertex) {
 		
 		initializeSearch(graph);
 		depthFirstSearch(graph, vertex);
@@ -34,7 +34,7 @@ public class DepthFirstSearch {
 	 * visited as soon as they are available. This behavior could have also been implemented using a
 	 * explicit stack data structure (instead of recursion).
 	 */
-	private static void depthFirstSearch(Graph graph, int vertex) {
+	protected void depthFirstSearch(Graph graph, int vertex) {
 
 		if(finish) return;
 		
@@ -69,7 +69,7 @@ public class DepthFirstSearch {
 	/*
 	 * This method initializes the variables that are used in the Depth-First Search algorithm
 	 */
-	private static void initializeSearch(Graph graph) {
+	protected void initializeSearch(Graph graph) {
 
 		int N = graph.getNumVertices();
 
@@ -87,12 +87,12 @@ public class DepthFirstSearch {
 	}
 	
 	/*
-	 * This method implements the actions that must be taken when a vertex is discovered (before recursively
-	 * exploring the vertex)
+	 * This method implements the actions that must be taken when a vertex is discovered (before
+	 * recursively exploring the vertex)
 	 */
-	private static void processVertexBefore(int vertex) {
+	protected void processVertexBefore(int vertex) {
 
-		// TODO: Complete this method
+		// TODO: Override this method
 		
 		System.out.println("Vertex (before): " + vertex);
 	}
@@ -100,20 +100,20 @@ public class DepthFirstSearch {
 	/*
 	 * This method contains the actions that must be taken when an edge is processed
 	 */
-	private static void processEdge(int x, int y) {
+	protected void processEdge(int x, int y) {
 
-		// TODO: Complete this method
+		// TODO: Override this method
 		
 		System.out.println("Edge: (" + x + "," + y + ")");
 	}
 
 	/*
-	 * This method implements the actions that must be taken when a vertex is set as "processed" (after all its adjacent
-	 * vertices are set as "processed")
+	 * This method implements the actions that must be taken when a vertex is set as "processed"
+	 * (after all its adjacent vertices are set as "processed")
 	 */
-	private static void processVertexAfter(int vertex) {
+	protected void processVertexAfter(int vertex) {
 
-		// TODO: Complete this method
+		// TODO: Override this method
 		
 		System.out.println("Vertex (after): " + vertex);
 	}
