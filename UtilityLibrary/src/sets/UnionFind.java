@@ -5,17 +5,17 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * A union-find (also known as disjoint-set) data structure. It stores a set of elements, partitioned
- * into disjoint subsets. It supports two main operations: find (the subset of a given element) and
- * union (of two different subsets into one single subset). The additional operation "make set" enables
- * the addition of new elements to the data structure.
+ * This class implements a union-find (also known as disjoint-set) data structure. It stores a set of
+ * elements, partitioned into disjoint subsets. It supports two main operations: find (the subset of
+ * a given element) and union (of two different subsets into one single subset). The additional operation
+ * "make set" enables the addition of new elements to the data structure.
  * 
  * In this union-find data structure, each subset is represented as a tree, in which each node holds a
  * reference to its parent node. This implementation of union-find data structures is called:
  * disjoint-set forests.
  * 
- * This class also implements union by rank and path compression; thus, it guarantees quasilinear time
- * for all of its supported operations. 
+ * This class also implements union by rank and path compression; thus, it guarantees nearly constant time
+ * (amortized) for all of its supported operations. 
  * 
  * @author Mario Cervera
  */
