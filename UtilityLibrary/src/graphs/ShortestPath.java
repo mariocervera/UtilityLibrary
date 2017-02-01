@@ -1,13 +1,18 @@
 package graphs;
 
 /**
- * This class provides an implementation of Dijkstra's algorithm, which computes shortest
- * paths in non-negative weighted graphs. Given a particular starting vertex s, it finds
- * the distance from s to every other vertex in the graph.
+ * This class implements two shortest path algorithms: Dijkstra's and Floyd-Warshall's.
  * 
- * This implementation of Dijkstra's algorithm runs in O(nm) time, where n is the number
- * of vertices of the graph and m is the number of edges. Faster running times can be
- * achieved by improving this algorithm by means of a heap data structure.
+ * Dijkstra's algorithm computes shortest paths in non-negative weighted graphs. Given
+ * a particular starting vertex s, it finds the distance from s to every other vertex
+ * in the graph. The implementation of Dijkstra's algorithm that is given in this class
+ * runs in O(nm) time, where n is the number of vertices of the graph and m is the number
+ * of edges. Faster running times can be achieved by improving this algorithm by means of
+ * a heap data structure.
+ * 
+ * Unlike Dijkstra's algorithm, Floyd-Warshall's algorithm finds shortest paths between
+ * all pairs of vertices. It supports both positive and negative edge weights (but no
+ * negative cycles). Floyd-Warshall's algorithm runs in O(n^3) time.
  * 
  * @author Mario Cervera
  */
@@ -77,4 +82,21 @@ public class ShortestPath {
 
 		return distance;
 	}
+	
+	/*
+	 * Floyd-Warshall's algorithm. It updates the input adjacency matrix with all n^2 distances
+	 * between all pairs of vertices.
+	 */
+	public static void floydWarshall(long[][] matrix, int N) {
+        
+		for(int k = 1; k <= N; k++) {
+            for(int i = 1; i <= N; i++) {
+                for(int j = 1; j <= N; j++) {
+                    if(matrix[i][k] != Long.MAX_VALUE && matrix[k][j] != Long.MAX_VALUE) {    
+                        matrix[i][j] = Math.min(matrix[i][j], matrix[i][k] + matrix[k][j]);
+                    }
+                }
+            }
+        }
+    }
 }
