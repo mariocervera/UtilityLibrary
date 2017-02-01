@@ -88,15 +88,15 @@ public class ShortestPath {
 	 * between all pairs of vertices.
 	 */
 	public static void floydWarshall(long[][] matrix, int N) {
-        
-		for(int k = 1; k <= N; k++) {
-            for(int i = 1; i <= N; i++) {
-                for(int j = 1; j <= N; j++) {
-                    if(matrix[i][k] != Long.MAX_VALUE && matrix[k][j] != Long.MAX_VALUE) {    
-                        matrix[i][j] = Math.min(matrix[i][j], matrix[i][k] + matrix[k][j]);
-                    }
-                }
-            }
-        }
-    }
+
+		for (int k = 1; k <= N; k++) {
+			for (int i = 1; i <= N; i++) {
+				for (int j = 1; j <= N; j++) {
+					if (matrix[i][k] != Long.MAX_VALUE && matrix[k][j] != Long.MAX_VALUE) {
+						matrix[i][j] = Math.min(matrix[i][j], matrix[i][k] + matrix[k][j]);
+					}
+				}
+			}
+		}
+	}
 }
