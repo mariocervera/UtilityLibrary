@@ -1,4 +1,4 @@
-package arithmetic;
+package math;
 
 import java.math.BigInteger;
 
